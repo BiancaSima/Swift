@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  PhotoEditorSwift
 //
-//  Created by 0xfeedface on 16/7/15.
-//  Copyright © 2016年 0xfeedface. All rights reserved.
+//  Created by Bianca Sima on 11/2/16.
+//  Copyright © 2016 Bianca Sima. All rights reserved.
 //
 
 import UIKit
@@ -24,19 +24,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
     }
 
     @IBAction func selectPhoto(_ sender: UIButton) {
-        let alert = UIAlertController(title: "", message: nil, preferredStyle: .actionSheet)
-        let cameraAction = UIAlertAction(title: "", style: .default, handler: {
+        let alert = UIAlertController(title: "Alert", message: nil, preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {
             action in
             alert.dismiss(animated: true, completion: nil)
             self.cameraGo(.camera)
         })
-        let libraryAction = UIAlertAction(title: "", style: .default, handler: {
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: {
             action in
             alert.dismiss(animated: true, completion: nil)
             self.cameraGo(.photoLibrary)
         })
         
-        let cancelAction = UIAlertAction(title: "", style: .cancel, handler: {
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
             action in
             alert.dismiss(animated: true, completion: nil)
         })
@@ -54,8 +54,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
             imagePicker.sourceType = sourceType
             self.present(imagePicker, animated: true, completion: nil)
         }   else {
-            let alert = UIAlertController(title: "", message: nil, preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "", style: .default, handler: {
+            let alert = UIAlertController(title: "Alert", message: nil, preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: {
                 action in
                 alert.dismiss(animated: true, completion: nil)
             })

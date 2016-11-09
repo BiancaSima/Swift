@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  PhotoEditorSwift
 //
-//  Created by 0xfeedface on 16/7/15.
-//  Copyright © 2016 0xfeedface. All rights reserved.
+//  Created by Bianca Sima on 11/2/16.
+//  Copyright © 2016 Bianca Sima. All rights reserved.
 //
 
 import UIKit

@@ -2,8 +2,8 @@
 //  DrawCoreViewController.swift
 //  PhotoEditorSwift
 //
-//  Created by virus1993 on 16/7/16.
-//  Copyright © 2016 0xfeedface. All rights reserved.
+//  Created by Bianca Sima on 11/2/16.
+//  Copyright © 2016 Bianca Sima. All rights reserved.
 //
 
 import UIKit
