@@ -96,7 +96,7 @@ class DrawCoreViewController: UIViewController {
         
         let leftBtn = UIButton(frame: CGRect(x: 5, y: 28, width: 100, height: 60))
         leftBtn.backgroundColor = UIColor.white
-        leftBtn.setTitle("ppp", for: UIControlState())
+        leftBtn.setTitle("Back", for: UIControlState())
         leftBtn.setTitleColor(UIColor.blue, for: UIControlState())
         leftBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         leftBtn.layer.borderColor = UIColor.blue.cgColor
@@ -107,7 +107,7 @@ class DrawCoreViewController: UIViewController {
         
         let rightBtn = UIButton(frame: CGRect(x: view.frame.size.width - 105, y: 28, width: 100, height: 60))
         rightBtn.backgroundColor = UIColor.white
-        rightBtn.setTitle("iii", for: UIControlState())
+        rightBtn.setTitle("Save", for: UIControlState())
         rightBtn.setTitleColor(UIColor.blue, for: UIControlState())
         rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         rightBtn.layer.borderColor = UIColor.blue.cgColor
@@ -118,7 +118,7 @@ class DrawCoreViewController: UIViewController {
         
         let rollbackBtn = UIButton(frame: CGRect(x: leftBtn.frame.origin.x + leftBtn.frame.size.width + 5, y: leftBtn.frame.origin.y, width: view.frame.size.width - (leftBtn.frame.size.width + rightBtn.frame.size.width + 4 * 5), height: leftBtn.frame.size.height))
         rollbackBtn.backgroundColor = UIColor.white
-        rollbackBtn.setTitle("yy", for: UIControlState())
+        rollbackBtn.setTitle("Undo", for: UIControlState())
         rollbackBtn.setTitleColor(UIColor.blue, for: UIControlState())
         rollbackBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         rollbackBtn.layer.borderColor = UIColor.blue.cgColor
@@ -129,18 +129,18 @@ class DrawCoreViewController: UIViewController {
         
         let upBtn = UIButton(frame: CGRect(x: 5, y: view.frame.size.height - 65, width: 100, height: 60))
         upBtn.backgroundColor = UIColor.white
-        upBtn.setTitle("yiy", for: UIControlState())
+        upBtn.setTitle("Shape", for: UIControlState())
         upBtn.setTitleColor(UIColor.blue, for: UIControlState())
         upBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         upBtn.layer.borderColor = UIColor.blue.cgColor
         upBtn.layer.borderWidth = 1
         upBtn.layer.cornerRadius = 4
-        upBtn.addTarget(self, action: #selector(self.shap(_:)), for: .touchUpInside)
+        upBtn.addTarget(self, action: #selector(self.shape(_:)), for: .touchUpInside)
         view.addSubview(upBtn)
         
         let downBtn = UIButton(frame: CGRect(x: view.frame.size.width - 105, y: view.frame.size.height - 65, width: 100, height: 60))
         downBtn.backgroundColor = UIColor.white
-        downBtn.setTitle("ddf", for: UIControlState())
+        downBtn.setTitle("Color", for: UIControlState())
         downBtn.setTitleColor(UIColor.blue, for: UIControlState())
         downBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         downBtn.layer.borderColor = UIColor.blue.cgColor
@@ -155,7 +155,7 @@ class DrawCoreViewController: UIViewController {
     }
     
   @objc fileprivate func save(_ button : UIButton) {
-        let alert = UIAlertView(title: "yryry", message: "y", delegate: nil, cancelButtonTitle: nil)
+        let alert = UIAlertView(title: nil, message: "Save", delegate: nil, cancelButtonTitle: nil)
         alert.show()
         drawRawView()
         if backClourse != nil {
@@ -176,9 +176,9 @@ class DrawCoreViewController: UIViewController {
         }
     }
     
-     @objc fileprivate func shap(_ button : UIButton) {
-        let alert = UIAlertController(title: "yryr", message: nil, preferredStyle: .actionSheet)
-        let camaraAction = UIAlertAction(title: "yryr", style: .default, handler: {
+     @objc fileprivate func shape(_ button : UIButton) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let camaraAction = UIAlertAction(title: "radio", style: .default, handler: {
             action in
             self.rectType = .radio
             button.setTitle("radio", for: UIControlState())
@@ -188,14 +188,14 @@ class DrawCoreViewController: UIViewController {
             self.rectType = .cub
             button.setTitle("cub", for: UIControlState())
         })
-        let textAction = UIAlertAction(title: "dsfs", style: .default, handler: {
+        let textAction = UIAlertAction(title: "text", style: .default, handler: {
             action in
             self.rectType = .text
             button.setTitle("text", for: UIControlState())
             self.addText(button)
         })
         
-        let cancelAction = UIAlertAction(title: "sefs", style: .cancel, handler: {
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
             action in
             alert.dismiss(animated: true, completion: nil)
         })
@@ -208,7 +208,7 @@ class DrawCoreViewController: UIViewController {
     }
     
     @objc fileprivate func colorChange(_ button : UIButton) {
-        let alert = UIAlertController(title: "eeee", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Color", message: nil, preferredStyle: .actionSheet)
         for (key, value) in colors {
             let action = UIAlertAction(title: key, style: .default, handler: {
                 action in
@@ -221,10 +221,10 @@ class DrawCoreViewController: UIViewController {
     }
     
     fileprivate func addText(_ button : UIButton) {
-        let alert = UIAlertController(title: "sefsefse", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Text", message: nil, preferredStyle: .alert)
         alert.addTextField(configurationHandler: {
             textField in
-            textField.placeholder = "sefsf"
+            textField.placeholder = "text"
         })
         
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {
@@ -238,7 +238,7 @@ class DrawCoreViewController: UIViewController {
             alert.dismiss(animated: true, completion: nil)
         })
         
-        let cancelAction = UIAlertAction(title: "se", style: .cancel, handler: {
+        let cancelAction = UIAlertAction(title: "Cancelyr", style: .cancel, handler: {
             action in
             alert.dismiss(animated: true, completion: nil)
         })
@@ -369,7 +369,7 @@ class DrawCoreViewController: UIViewController {
             return
         }
         
-        originImage.draw(in: CGRect(x: 0, y: 0, width: originImage.size.width, height: originImage.size.height))
+        originImage.draw(in: CGRect(x: -200, y:70, width: originImage.size.width, height: originImage.size.height))
         context.setLineWidth(2.5 * fabs(originImage.size.width / drawView.frame.size.width))
         
         for path in paths {
